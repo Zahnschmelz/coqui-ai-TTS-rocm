@@ -116,6 +116,18 @@ You can also help us implement more models.
 
 <!-- start installation -->
 ## Installation
+🐸coqui-ai-TTS-rocm is tested on Arch Linux with python == 3.14.
+
+sudo pacman -Sy git python python-torchcodec python-pytorch-opt-rocm fakeroot debugedit cmake base-devel python-pip --noconfirm
+git clone https://aur.archlinux.org/python-torchaudio-rocm.git
+cd python-torchaudio-rocm
+makepkg -si
+cd ..
+git clone https://github.com/Zahnschmelz/coqui-ai-TTS-rocm.git
+cd coqui-ai-TTS-rocm
+python -m venv --system-site-packages .venv
+source .venv/bin/activate
+pip install -e .
 
 > [!NOTE]
 > From `coqui-tts` 0.27.4, PyTorch is not included by default and you need to install it yourself.
