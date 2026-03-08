@@ -128,6 +128,7 @@ cd coqui-ai-TTS-rocm
 python -m venv --system-site-packages .venv
 source .venv/bin/activate
 pip install -e .
+pip install transformers==5.0.0
 
 > [!NOTE]
 > From `coqui-tts` 0.27.4, PyTorch is not included by default and you need to install it yourself.
