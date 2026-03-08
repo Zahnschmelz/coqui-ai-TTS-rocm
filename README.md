@@ -33,6 +33,13 @@ wget https://huggingface.co/coqui/XTTS-v2/resolve/v2.0.3/mel_stats.pth?download=
 wget https://huggingface.co/coqui/XTTS-v2/resolve/v2.0.3/model.pth?download=true
 wget https://huggingface.co/coqui/XTTS-v2/resolve/v2.0.3/speakers_xtts.pth?download=true
 wget https://huggingface.co/coqui/XTTS-v2/resolve/v2.0.3/vocab.json?download=true
+cd ../..
+```
+# download a voice .wav (for example de_sample.wav)
+```
+mkdir -p voices && cd voices
+wget https://huggingface.co/coqui/XTTS-v2/resolve/v2.0.3/samples/de_sample.wav?download=true
+cd ..
 ```
 > [!NOTE]
 > From `coqui-tts` 0.27.4, PyTorch is not included by default and you need to install it yourself.
