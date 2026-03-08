@@ -20,7 +20,7 @@ pip install transformers==5.0.0
 ```
 python -c "import torch; torch.cuda.is_available()"
 ```
-# download a moedel (for example xtts-v2.0.3)
+# download a model (for example xtts-v2.0.3)
 ```
 mkdir -p models/xtts-v2.0.3 && cd models/xtts-v2.0.3
 wget https://huggingface.co/coqui/XTTS-v2/resolve/v2.0.3/.gitattributes?download=true
