@@ -2,7 +2,7 @@
 ## Installation
 🐸coqui-ai-TTS-rocm is tested on Arch Linux with python == 3.14.
 
-#prerequisites:
+# prerequisites:
 ```
 sudo pacman -Sy wget git python python-torchcodec python-pytorch-opt-rocm fakeroot debugedit cmake base-devel python-pip --noconfirm
 git clone https://aur.archlinux.org/python-torchaudio-rocm.git
@@ -16,9 +16,12 @@ source .venv/bin/activate
 pip install -e .
 pip install transformers==5.0.0
 ```
-#check if pytorch working:
+# check if pytorch working:
 ```
 python -c "import torch; torch.cuda.is_available()"
+```
+# download a moedel (for example xtts-v2.0.3)
+```
 mkdir -p models/xtts-v2.0.3 && cd models/xtts-v2.0.3
 wget https://huggingface.co/coqui/XTTS-v2/resolve/v2.0.3/.gitattributes?download=true
 wget https://huggingface.co/coqui/XTTS-v2/resolve/v2.0.3/LICENSE.txt?download=true
