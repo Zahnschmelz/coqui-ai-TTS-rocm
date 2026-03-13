@@ -15,7 +15,7 @@ python -m venv --system-site-packages .venv
 source .venv/bin/activate
 pip install -e .
 pip install transformers==5.0.0
-pip3 install torch torchvision --index-url https://download.pytorch.org/whl/rocm7.1 # (check for newest version: https://pytorch.org/get-started/locally/)
+pip install torch torchaudio torchvision --index-url https://download.pytorch.org/whl/rocm7.1 # (check for newest version: https://pytorch.org/get-started/locally/)
 ```
 # check if pytorch working:
 ```
