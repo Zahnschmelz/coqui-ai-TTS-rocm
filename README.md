@@ -51,6 +51,9 @@ cd ..
 ```python
 import torch
 from TTS.api import TTS
+from TTS.tts.configs.xtts_config import XttsConfig
+from TTS.tts.models.xtts import Xtts
+
 
 # Get device
 device = "cuda" if torch.cuda.is_available() else "cpu"
