@@ -59,7 +59,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 print(TTS().list_models())
 
 # Initialize TTS
-tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to(device)
+tts = TTS("models/xtts-v2.0.3").to(device)
 
 # List speakers
 print(tts.speakers)
@@ -71,15 +71,15 @@ print(tts.speakers)
 # TTS with list of amplitude values as output, clone the voice from `speaker_wav`
 wav = tts.tts(
   text="Hello world!",
-  speaker_wav="my/cloning/audio.wav",
-  language="en"
+  speaker_wav="voices/de_sample.wav",
+  language="de"
 )
 
-# TTS to a file, use a preset speaker
+# TTS to a file, use speaker wav
 tts.tts_to_file(
   text="Hello world!",
-  speaker="Craig Gutsy",
-  language="en",
+  speaker_wav="voices/de_sample.wav",
+  language="de",
   file_path="output.wav"
 )
 ```
@@ -107,9 +107,9 @@ tts.tts_to_file(text="Ich bin eine Testnachricht.", file_path=OUTPUT_PATH)
 Converting the voice in `source_wav` to the voice of `target_wav`:
 
 ```python
-tts = TTS("voice_conversion_models/multilingual/vctk/freevc24").to("cuda")
+tts = TTS("models/xtts-v2.0.3").to("cuda")
 tts.voice_conversion_to_file(
-  source_wav="my/source.wav",
+  source_wav="voices/de_sample.wav",
   target_wav="my/target.wav",
   file_path="output.wav"
 )
