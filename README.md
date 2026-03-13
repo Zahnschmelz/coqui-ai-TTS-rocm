@@ -44,7 +44,7 @@ cd ..
 
 ## Synthesizing speech by 🐸TTS
 <!-- start inference -->
-### 🐍 Python API
+### 🐍 Python API (run python inside coqui-ai-TTS-rocm directory)
 
 #### Multi-speaker and multi-lingual model
 
