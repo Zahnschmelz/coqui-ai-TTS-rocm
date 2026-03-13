@@ -55,33 +55,21 @@ from TTS.api import TTS
 # Get device
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-# List available 🐸TTS models
-print(TTS().list_models())
+config = XttsConfig()
+config.load_json("./models/xttsv2_2.0.3/config.json")
+model = Xtts.init_from_config(config)
+model.load_checkpoint(config, checkpoint_dir="models/xttsv2_2.0.3/")
+model.cuda()
+gpt_cond_latent, speaker_embedding = model.get_conditioning_latents(audio_path=["voices/de_sample.wav"])
 
-# Initialize TTS
-tts = TTS("models/xtts-v2.0.3").to(device)
+out = model.inference(
+    "Hello world!",
+    "en",
+    gpt_cond_latent,
+    speaker_embedding,
+    enable_text_splitting=True)
 
-# List speakers
-print(tts.speakers)
-
-# Run TTS
-# ❗ XTTS supports both, but many models allow only one of the `speaker` and
-# `speaker_wav` arguments
-
-# TTS with list of amplitude values as output, clone the voice from `speaker_wav`
-wav = tts.tts(
-  text="Hello world!",
-  speaker_wav="voices/de_sample.wav",
-  language="de"
-)
-
-# TTS to a file, use speaker wav
-tts.tts_to_file(
-  text="Hello world!",
-  speaker_wav="voices/de_sample.wav",
-  language="de",
-  file_path="output.wav"
-)
+torchaudio.save("outputs/out.wav", torch.tensor(out["wav"]).unsqueeze(0), 24000)
 ```
 
 From version 0.27.0 you can [cache cloned
