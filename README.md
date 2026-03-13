@@ -51,6 +51,7 @@ cd ..
 
 ```python
 import torch
+import torchaudio
 from TTS.api import TTS
 from TTS.tts.configs.xtts_config import XttsConfig
 from TTS.tts.models.xtts import Xtts
