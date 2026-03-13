@@ -43,6 +43,11 @@ wget https://huggingface.co/coqui/XTTS-v2/resolve/v2.0.3/samples/de_sample.wav?d
 cd ..
 ```
 
+# Create outputs directory
+```
+mkdir -p outputs
+```
+
 ## Synthesizing speech by 🐸TTS
 <!-- start inference -->
 ### 🐍 Python API (run python inside coqui-ai-TTS-rocm directory)
@@ -75,5 +80,10 @@ out = model.inference(
     enable_text_splitting=True)
 
 torchaudio.save("outputs/out.wav", torch.tensor(out["wav"]).unsqueeze(0), 24000)
+```
+
+now it generats a .wav audiofile with "Hello World" inside the outputs directory. Play it with your favorite Audioplayer or use:
+```
+paplay outputs/out.wav
 ```
 <!-- end-tts-readme -->
